@@ -14,9 +14,13 @@
     <body>
 
     <div id="demo" class="container">
-        <input type="text" v-model="name" number>
+        <ul>
+        	<li v-repeat='names: names'>{{ names }}</li>
+        </ul>
 
-        <pre>{{ $data | json }}</pre>
+
+        <input type="text" placeholder="Add a new name" v-model="newName" v-on="blur: addName">
+
 
     </div>
 
