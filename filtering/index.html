@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Vue.js Learning</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+    <body id="demo"class="container">
+
+        <input v-model="search" class="form-control">
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th v-repeat="column: columns">
+                    <a href="#" 
+                       v-on="click: sortBy(column)" 
+                       v-class="active: sortKey == column">                       
+                        {{ column | capitalize }}
+                    </a>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr v-repeat="
+                people 
+                | filterBy search 
+                |orderBy sortKey reverse">
+                <td>{{ name }}</td>
+                <td>{{ age }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
+    <!--<script src="vue.js"></script> -->
+
+    <script src="app.js"></script>
+
+    </body>
+
+</html>
